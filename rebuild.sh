@@ -59,8 +59,11 @@ PACKAGENAME=`cat package.json | grep name | •trim | awk -F'"' '{print $4}' | �
 mkdir check;
 cp dist.json check/package.json;
 cd check;
-npm install $PACKAGENAME;
+npm install $PACKAGENAME 2>/dev/null;
 PUBLISHEDVERSION=`cat package.json | grep $PACKAGENAME | •trim | awk -F'"' '{print $4}' | sed 's/^[^0-9]*//' | •trim`;
+if [ "$PUBLISHEDVERSION" = "" ]; then
+	PUBLISHEDVERSION="1.0.0";
+fi;
 cd ..;
 rm -rf ./check;
 FULLVERSION=`cat package.json | grep version | •trim | awk -F'"' '{print $4}' | •trim`;
