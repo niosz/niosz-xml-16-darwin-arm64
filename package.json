@@ -1,6 +1,6 @@
 {
   "name": "niosz-xml-16-darwin-arm64",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "16-darwin-arm64",
   "main": "index.js",
   "scripts": {
